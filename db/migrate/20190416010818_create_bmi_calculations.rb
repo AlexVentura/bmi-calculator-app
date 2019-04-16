@@ -4,7 +4,6 @@ class CreateBmiCalculations < ActiveRecord::Migration[5.2]
       t.float :weight
       t.float :index
       t.references :user, foreign_key: true
-      t.references :bmi_category, foreign_key: true
 
       t.timestamps
     end

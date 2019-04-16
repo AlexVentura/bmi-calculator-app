@@ -19,20 +19,10 @@ ActiveRecord::Schema.define(version: 2019_04_16_024311) do
     t.float "weight"
     t.float "index"
     t.bigint "user_id"
-    t.bigint "bmi_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
-    t.index ["bmi_category_id"], name: "index_bmi_calculations_on_bmi_category_id"
     t.index ["user_id"], name: "index_bmi_calculations_on_user_id"
-  end
-
-  create_table "bmi_categories", force: :cascade do |t|
-    t.string "name"
-    t.float "from"
-    t.float "to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,6 +40,5 @@ ActiveRecord::Schema.define(version: 2019_04_16_024311) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bmi_calculations", "bmi_categories"
   add_foreign_key "bmi_calculations", "users"
 end

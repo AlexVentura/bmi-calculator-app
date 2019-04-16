@@ -1,2 +1,0 @@
-class BmiCategory < ApplicationRecord
-end
