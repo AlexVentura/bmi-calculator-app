@@ -3,8 +3,8 @@
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <h3 class="mb-0"><%= "#{current_user.first_name} #{current_user.last_name}" %></h3>
-        <div class="mb-1 text-muted">Weight: <%= current_user.height %></div>
-        <p class="card-text mb-auto">Last BMI: <%= current_user.bmi_calculations.last.try(:index) %></p>
+        <div class="mb-1 text-muted">Height: <%= current_user.height %></div>
+        <p class="card-text mb-auto">Last BMI: <%= @last_bmi || 0 %></p>
         <p class="card-text mb-auto"></p>
         <div class="d-flex mt-4">
           <a href="<%= edit_user_registration_path %>" class="btn btn-flat">Edit profile</a>
@@ -16,3 +16,28 @@
     </div>
   </div>
 </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">BMI</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bmi_calculations.each do |bmi| %>
+      <tr>
+        <th scope="row"><%= bmi.id %></th>
+        <td><%= bmi.created_at %></td>
+        <td><%= bmi.user.height %></td>
+        <td><%= bmi.weight %></td>
+        <td><%= bmi.index %></td>
+        <td><span class="badge badge-primary"><%= bmi.category %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
