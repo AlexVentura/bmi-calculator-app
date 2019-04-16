@@ -29,3 +29,12 @@ main {
   flex: 1 0 auto;
 }
 
+#flash-messages {
+  left: 0;
+  margin-top: 56px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
