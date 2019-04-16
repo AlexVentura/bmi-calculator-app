@@ -18,3 +18,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  /* Dismissable flash notifications and alerts on time out */
+  setTimeout(function() {
+    $('#flash-messages').fadeOut(350, function() {
+      $(this).remove();
+    });
+  }, 2000);
+});
