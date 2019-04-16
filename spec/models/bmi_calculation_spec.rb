@@ -25,7 +25,7 @@ RSpec.describe BmiCalculation, type: :model do
   end
 
   it 'should set the right Category for Underweight' do
-    body_mass = create(:bmi_calculation, weight: 50)
+    body_mass = create(:bmi_calculation, weight: 53)
     expect(body_mass.category).to eq 'underweight'
   end
 
@@ -35,22 +35,37 @@ RSpec.describe BmiCalculation, type: :model do
   end
 
   it 'should set the right Category for Overweight' do
-    body_mass = create(:bmi_calculation, weight: 80)
+    body_mass = create(:bmi_calculation, weight: 87)
     expect(body_mass.category).to eq 'overweight'
   end
 
   it 'should set the right Category for Moderately obese' do
-    body_mass = create(:bmi_calculation, weight: 95)
+    body_mass = create(:bmi_calculation, weight: 99)
     expect(body_mass.category).to eq 'moderately_obese'
   end
 
   it 'should set the right Category for Severely obese' do
-    body_mass = create(:bmi_calculation, weight: 110)
+    body_mass = create(:bmi_calculation, weight: 115)
     expect(body_mass.category).to eq 'severely_obese'
   end
 
   it 'should set the rigth Category for Very severely obese' do
-    body_mass = create(:bmi_calculation, weight: 140)
+    body_mass = create(:bmi_calculation, weight: 125)
     expect(body_mass.category).to eq 'very_severely_obese'
+  end
+
+  it 'should set the rigth Category for Morbidly Obese' do
+    body_mass = create(:bmi_calculation, weight: 140)
+    expect(body_mass.category).to eq 'morbidly_obese'
+  end
+
+  it 'should set the rigth Category for Super Obese' do
+    body_mass = create(:bmi_calculation, weight: 166)
+    expect(body_mass.category).to eq 'super_obese'
+  end
+
+  it 'should set the rigth Category for Hyper Obese' do
+    body_mass = create(:bmi_calculation, weight: 180)
+    expect(body_mass.category).to eq 'hyper_obese'
   end
 end

@@ -7,7 +7,10 @@ class BmiCalculation < ApplicationRecord
     overweight: 25,
     moderately_obese: 30,
     severely_obese: 35,
-    very_severely_obese: 40
+    very_severely_obese: 40,
+    morbidly_obese: 45,
+    super_obese: 50,
+    hyper_obese: 60
   }.freeze
 
   belongs_to :user
