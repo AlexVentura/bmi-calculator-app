@@ -32,11 +32,11 @@
     <% @bmi_calculations.each do |bmi| %>
       <tr>
         <th scope="row"><%= bmi.id %></th>
-        <td><%= bmi.created_at %></td>
+        <td><%= bmi.created_at.to_formatted_s(:short) %></td>
         <td><%= bmi.user.height %></td>
         <td><%= bmi.weight %></td>
         <td><%= bmi.index %></td>
-        <td><span class="badge badge-primary"><%= bmi.category %></span></td>
+        <td><span class="badge badge-primary"><%= bmi.category.humanize %></span></td>
       </tr>
     <% end %>
   </tbody>
