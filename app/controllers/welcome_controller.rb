@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!, except: [:index]
+
+  def index; end
+
+  def dasboard; end
 end
