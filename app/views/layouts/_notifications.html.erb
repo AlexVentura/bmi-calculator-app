@@ -1,0 +1,11 @@
+<% flash.each do |type, message| %>
+  <% if message.is_a?(String) %>
+    <div id="flash-messages" class="alert alert-<%= flash_class(type) %> alert-dismissible fade show" role="alert">
+      <%= icon('fas', flash_icon(type), message) %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+<% end %>
+
